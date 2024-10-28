@@ -9,7 +9,6 @@ interface UserPageProps {
   params: {
     username: string;
   };
-  hideSuspense: boolean;
 };
 
 const UserPage = async ({
