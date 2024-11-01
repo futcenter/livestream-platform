@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Poppins } from "next/font/google";
 
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 const font = Poppins({
   subsets: ["latin"],
@@ -12,12 +13,14 @@ export const Logo = () => {
   return (
     <div className="flex flex-col items-center gap-y-2">
       <div className="rounded-full p-1">
-        <Image
-          src="/logo-white.png"
-          alt="Gamehub"
-          height="160"
-          width="160"
-        />
+        <Link href={`/?href=logo`}>
+          <Image
+            src="/logo-white.png"
+            alt="Gamehub"
+            height="160"
+            width="160"
+          />
+        </Link>
       </div>
       <div className={cn(
         "flex flex-col items-center",

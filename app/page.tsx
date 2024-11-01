@@ -1,10 +1,13 @@
 "use client"
 import React, { useRef, useState } from "react";
 import Link from "next/link";
+import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
+import { Button } from "@/components/ui/button";
 
 const AppPage = () => {
     const [isToggled, setIsToggled] = useState(false);
-    
+    const userButton = useRef<HTMLButtonElement>(null);
+    const {user} = useUser();
     return <>
         <header>
             <nav className="absolute z-10 w-full border-b border-black/5 dark:border-white/5 lg:border-transparent">
@@ -13,8 +16,8 @@ const AppPage = () => {
                         <div className="relative z-20 flex w-full justify-between md:px-0 lg:w-max">
                             <Link href={"/"} aria-label="logo" className="flex items-center space-x-2">
                                 <div aria-hidden="true" className="flex space-x-1">
-                                    <img className="w-28 block dark:hidden" src="/logo-black.png" />
-                                    <img className="w-28 hidden dark:block" src="/logo.png" />
+                                    <img className="w-16 sm:w-28 block dark:hidden" src="/logo-black.png" />
+                                    <img className="w-16 sm:w-28 hidden dark:block" src="/logo.png" />
                                 </div>
                             </Link>
 
@@ -39,12 +42,25 @@ const AppPage = () => {
                                 </ul>
                             </div>
 
-                            <div className="mt-12 lg:mt-0">
+                            <div className=" lg:mt-0 flex gap-2">
                                 <Link href={`/live`} className="relative flex h-9 w-full items-center justify-center px-4 before:absolute before:inset-0 before:rounded-full before:bg-red-500 hover:before:bg-red-600 before:transition before:duration-300 hover:before:scale-105 active:duration-75 active:before:scale-95 sm:w-max">
                                     <span className="relative text-sm font-semibold text-white flex gap-2 items-center justify-between">
                                         En vivo ahora <img src="/live-white.png" className="w-6 inline" />
                                     </span>
                                 </Link>
+                                {
+                                    !user && <SignInButton>
+                                        <Button size="sm" variant="primary">
+                                            Login
+                                        </Button>
+                                    </SignInButton>
+                                }
+                                {
+                                    !!user && 
+                                        <UserButton
+                                            afterSignOutUrl="/"
+                                        />
+                                }
                             </div>
                         </div>
                     </div>
@@ -59,7 +75,7 @@ const AppPage = () => {
             <div className="max-w-7xl mx-auto px-6 md:px-12 xl:px-6">
                 <div className="relative pt-36 ml-auto">
                     <div className="lg:w-2/3 text-center mx-auto">
-                        <h1 className="text-gray-900 dark:text-white font-bold text-5xl md:text-6xl xl:text-7xl">
+                        <h1 className="text-gray-900 dark:text-white font-bold text-4xl md:text-6xl xl:text-7xl">
                             ¡Vive cada partido en tiempo real! ⚽️
                         </h1>
                         <p className="mt-8 text-gray-700 dark:text-gray-300">
@@ -68,18 +84,20 @@ const AppPage = () => {
                         <p className="mt-8 text-gray-700 dark:text-gray-300">
                             En Futcenter, organizamos las mejores ligas de fútbol local y te traemos la emoción directamente a tu pantalla. Con nuestra plataforma de transmisión en vivo, no te perderás ningún momento crucial de los partidos.
                         </p>
-                        <div className="hidden py-8 mt-16 border-y border-gray-100 dark:border-gray-800 sm:flex justify-between">
+                    </div>
+                    <div className="px-8 text-center mx-auto">
+                        <div className="py-8 mt-16 border-y border-gray-100 dark:border-gray-800 flex flex-col sm:flex-row gap-4 justify-between">
                             <div className="text-left">
-                                <h6 className="text-lg font-semibold text-gray-700 dark:text-white">¡Vive el Fútbol en Vivo!</h6>
-                                <p className="mt-2 text-gray-500">Disfruta de cada partido, cada gol y cada emoción en tiempo real. Futcenter te lleva al campo desde cualquier lugar.</p>
+                                <h6 className="text-lg font-semibold text-gray-700 dark:text-white text-center">¡Vive el Fútbol en Vivo!</h6>
+                                <p className="mt-2 text-gray-500 text-center">Disfruta de cada partido, cada gol y cada emoción en tiempo real. Futcenter te lleva al campo desde cualquier lugar.</p>
                             </div>
                             <div className="text-left">
-                                <h6 className="text-lg font-semibold text-gray-700 dark:text-white">The fastest on the market</h6>
-                                <p className="mt-2 text-gray-500">Accede a las mejores ligas locales, estadísticas en vivo y transmisiones exclusivas, ¡no te pierdas ni un segundo del juego!</p>
+                                <h6 className="text-lg font-semibold text-gray-700 dark:text-white text-center">The fastest on the market</h6>
+                                <p className="mt-2 text-gray-500 text-center">Accede a las mejores ligas locales, estadísticas en vivo y transmisiones exclusivas, ¡no te pierdas ni un segundo del juego!</p>
                             </div>
                             <div className="text-left">
-                                <h6 className="text-lg font-semibold text-gray-700 dark:text-white">La Pasión del Fútbol, al Alcance de tu Pantalla</h6>
-                                <p className="mt-2 text-gray-500">Siente la emoción de cada jugada y acompaña a tu equipo favorito en cada partido, estés donde estés.</p>
+                                <h6 className="text-lg font-semibold text-gray-700 dark:text-white text-center">La Pasión del Fútbol, al Alcance de tu Pantalla</h6>
+                                <p className="mt-2 text-gray-500 text-center">Siente la emoción de cada jugada y acompaña a tu equipo favorito en cada partido, estés donde estés.</p>
                             </div>
                         </div>
                     </div>
