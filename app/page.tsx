@@ -1,12 +1,13 @@
 "use client"
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
+import { getOnLiveStrams } from "@/lib/stream-service";
 
 const AppPage = () => {
     const [isToggled, setIsToggled] = useState(false);
-    const userButton = useRef<HTMLButtonElement>(null);
+    
     const { user } = useUser();
     return <>
         <header>

@@ -1,3 +1,4 @@
+'use server'
 import { db } from "@/lib/db";
 
 export const getStreamByUserId = async (userId: string) => {
@@ -6,4 +7,31 @@ export const getStreamByUserId = async (userId: string) => {
   });
 
   return stream;
+};
+
+export const getOnLiveStrams = async () => {
+
+  let streams = [];
+  streams = await db.stream.findMany({
+    where: {
+      isLive: true
+    },
+    select: {
+      id: true,
+      user: true,
+      isLive: true,
+      name: true,
+      thumbnailUrl: true,
+    },
+    orderBy: [
+      {
+        isLive: "desc",
+      },
+      {
+        updatedAt: "desc",
+      }
+    ],
+  });
+
+  return streams;
 };
