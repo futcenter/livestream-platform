@@ -70,12 +70,13 @@ export async function POST(req: Request) {
   }
 
   if (eventType === "user.updated") {
+    const generated_username = generateFromEmail(payload.data.first_name, 5)
     await db.user.update({
       where: {
         externalUserId: payload.data.id,
       },
       data: {
-        username: payload.data.username,
+        username: payload.data.username || generated_username,
         imageUrl: payload.data.image_url,
       },
     });
