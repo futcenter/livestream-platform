@@ -187,8 +187,8 @@ const AppPage = () => {
                     </div>
 
                     <span className="flex justify-between text-gray-600 dark:text-white">
-                        <a href="#" className="font-medium">Terms of Use </a>
-                        <a href="#" className="font-medium"> Privacy Policy</a>
+                        <Link href={`/terms-of-service`} className="font-medium">Terms of Service </Link>
+                        <Link href={`/privacy-policy`} className="font-medium"> Privacy Policy</Link>
                     </span>
                 </div>
             </footer>
