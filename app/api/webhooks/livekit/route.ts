@@ -28,7 +28,6 @@ export async function POST(req: Request) {
         isLive: true,
       },
     });
-    return new Response("Live started", { status: 200 });
   }
 
   if (event.event === "ingress_ended") {
@@ -40,6 +39,5 @@ export async function POST(req: Request) {
         isLive: false,
       },
     });
-    return new Response("Live ended", { status: 200 });
   }
 }
