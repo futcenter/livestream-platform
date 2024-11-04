@@ -132,7 +132,7 @@ const AppPage = () => {
                     <div role="list" className="flex flex-col md:flex-row justify-between gap-3">
                         <div className="flex justify-between gap-3">
                             <div>
-                                <a href="#" className="flex items-center space-x-3 transition hover:text-primary">
+                                <a href="https://x.com/futcenter" className="flex items-center space-x-3 transition hover:text-primary">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         fill="currentColor"
@@ -147,7 +147,7 @@ const AppPage = () => {
                                 </a>
                             </div>
                             <div>
-                                <a href="#" className="flex items-center space-x-3 transition hover:text-primary">
+                                <a href="https://www.youtube.com/@futcentertv5689" className="flex items-center space-x-3 transition hover:text-primary">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         fill="currentColor"
@@ -164,7 +164,7 @@ const AppPage = () => {
                         </div>
                         <div className="flex justify-between gap-3">
                             <div>
-                                <a href="#" className="flex items-center space-x-3 transition hover:text-primary">
+                                <a href="https://www.facebook.com/FutcenterBugambilias" className="flex items-center space-x-3 transition hover:text-primary">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         fill="currentColor"
@@ -179,7 +179,7 @@ const AppPage = () => {
                                 </a>
                             </div>
                             <div>
-                                <a href="#" className="flex items-center space-x-3 transition hover:text-primary">
+                                <a href="https://www.instagram.com/futcenterbugambilias10/" className="flex items-center space-x-3 transition hover:text-primary">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         fill="currentColor"
