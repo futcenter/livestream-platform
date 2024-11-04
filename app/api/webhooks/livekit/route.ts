@@ -20,6 +20,8 @@ export async function POST(req: Request) {
   const event = receiver.receive(body, authorization);
 
   if (event.event === "ingress_started") {
+    console.log("ingress_started");
+    
     await db.stream.update({
       where: {
         ingressId: event.ingressInfo?.ingressId,
@@ -31,6 +33,7 @@ export async function POST(req: Request) {
   }
 
   if (event.event === "ingress_ended") {
+    console.log("ingress_ended");
     await db.stream.update({
       where: {
         ingressId: event.ingressInfo?.ingressId,

@@ -11,7 +11,7 @@ const font = Exo({
 
 export const Logo = () => {
   return (
-    <Link href="/">
+    <Link href="/live">
       <div className="flex items-center gap-x-4 hover:opacity-75 transition">
         <div className=" rounded-full p-1 mr-12 shrink-0 lg:mr-0 lg:shrink">
           <Image

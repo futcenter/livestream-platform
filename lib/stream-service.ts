@@ -16,13 +16,6 @@ export const getOnLiveStrams = async () => {
     where: {
       isLive: true
     },
-    select: {
-      id: true,
-      user: true,
-      isLive: true,
-      name: true,
-      thumbnailUrl: true,
-    },
     orderBy: [
       {
         isLive: "desc",
